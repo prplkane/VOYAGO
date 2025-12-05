@@ -69,6 +69,25 @@
 - Python 3.8+
 - Gmail API credentials
 
+🔐 Security
+Secure JWT-based authentication
+Password hashing with bcrypt
+Rate limiting on auth endpoints
+OAuth 2.0 for Gmail integration
+Environment variable protection
+SQL injection prevention
+📄 License
+This project is licensed under the MIT License.
+
+👥 Authors
+Built with ❤️ by:
+
+Kantemir Muratov
+Pranav
+Tate Taguchi
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+
 ### Installation
 
 ```bash

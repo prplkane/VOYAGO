@@ -2,6 +2,8 @@
 
 **Voyago** is a modern, full-stack travel planning application that transforms how groups organize and manage trips together. Built with React, Node.js, and MySQL, Voyago combines intelligent email extraction, real-time collaboration, and comprehensive budget tracking to make travel planning effortless.
 
+[![Promo Video](https://img.youtube.com/vi/dPgzqG6LOFA.jpg)](https://youtu.be/dPgzqG6LOFA)
+
 ## ✨ Key Features
 
 ### 📧 **Automated Booking Management**

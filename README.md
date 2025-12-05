@@ -1,133 +1,96 @@
-# Node.js Full-Stack Application Template
+# 🌍 VOYAGO - Smart Collaborative Trip Planning Platform
 
-## Overview
-This project is a full-stack application template designed to streamline the development of modern web applications. It includes a Node.js backend, a React-based frontend, and a MySQL database. The template is structured to support scalable, secure, and feature-rich applications with a focus on modularity and maintainability.
+**Voyago** is a modern, full-stack travel planning application that transforms how groups organize and manage trips together. Built with React, Node.js, and MySQL, Voyago combines intelligent email extraction, real-time collaboration, and comprehensive budget tracking to make travel planning effortless.
 
-## Features
-### Backend
-- **Express.js RESTful API**: Provides a robust and scalable API for handling requests.
-- **Authentication**: Secure user authentication using JWT tokens and bcrypt for password hashing.
-- **Database Integration**: MySQL database with a normalized schema and support for JSON data storage.
-- **Email Integration**: Gmail OAuth for email extraction and processing.
-- **Geocoding Service**: Integration with Nominatim API for location-based data.
-- **Modular Design**: Organized routes, services, and utilities for maintainability.
+## ✨ Key Features
 
-### Frontend
-- **React Framework**: Modern, component-based architecture for building dynamic user interfaces.
-- **Responsive Design**: Mobile-friendly and accessible UI built with Bootstrap.
-- **OAuth Integration**: Seamless Gmail authentication flow.
-- **Role-Based Access Control**: Organizer and member roles with tailored permissions.
-- **Interactive Components**: Includes modals, dashboards, and dynamic forms.
+### 📧 **Automated Booking Management**
+- **Smart Email Extraction**: AI-powered system automatically scans Gmail for flight, hotel, and rental car confirmations
+- **One-Click Import**: Extract booking details from emails and add to your itinerary instantly
+- **Duplicate Detection**: Intelligent filtering prevents re-importing existing bookings
 
-### Database
-- **MySQL**: Relational database with support for structured JSON fields.
-- **Schema**: Predefined schema for users, trips, events, and members.
-- **Data Integrity**: Duplicate detection and validation mechanisms.
+### 👥 **Real-Time Collaboration**
+- **Multi-User Trip Planning**: Invite friends and family to collaborate on trips
+- **Role-Based Permissions**: Organizers and members with tailored access levels
+- **Live Notifications**: Stay updated on trip changes, invitations, and member activity
+- **Shared Itineraries**: Everyone sees the same synchronized schedule
 
-## Project Structure
-```
-node-app-template/
-├── backend/             # Backend API and services
-│   ├── routes/          # API route handlers
-│   ├── services/        # Utility services (e.g., geocoding, email extraction)
-│   ├── utils/           # Helper functions
-│   ├── server.js        # Main server file
-│   └── database_schema.sql # SQL schema for database setup
-├── frontend/            # React frontend
-│   ├── src/             # React components and pages
-│   ├── public/          # Static assets
-│   ├── vite.config.js   # Vite configuration
-│   └── package.json     # Frontend dependencies
-├── email_extractor/     # Python-based email extraction service
-│   ├── services/        # Gmail API integration
-│   ├── extractors/      # Booking and email parsers
-│   └── requirements.txt # Python dependencies
-└── README.md            # Project documentation
-```
+### 💰 **Smart Budget Management**
+- **Trip Budgets**: Set and track budgets for individual trips
+- **Expense Splitting**: Automated calculation of who owes what
+- **Category Breakdown**: Visualize spending across accommodation, food, transport, and activities
+- **Member-Level Tracking**: Monitor individual spending and budget goals
+- **Debt Settlement**: Built-in system to track and settle shared expenses
 
-## Setup Instructions
+### 🗓️ **Interactive Calendar & Itinerary**
+- **Visual Trip Planning**: Month and list views for all your events
+- **Multi-Trip Organization**: Manage multiple trips with overlapping dates
+- **Event Details**: Track flights, hotels, activities, and transportation
+- **Timeline Management**: Automatic scheduling and conflict detection
+
+### 🗺️ **Maps & Location Intelligence**
+- **Interactive Maps**: Visualize all destinations and waypoints
+- **Google Maps Export**: Generate KML files to view itineraries in Google Maps
+- **Geocoding**: Automatic location detection and coordinate mapping
+- **Location-Based Events**: Link events to specific places with coordinates
+
+### 🤖 **AI-Powered Assistant**
+- **Smart Recommendations**: Get AI suggestions for activities and attractions
+- **Itinerary Optimization**: Intelligent scheduling assistance
+- **Natural Language Queries**: Ask questions about your trip plans
+
+## 🛠️ Tech Stack
+
+**Frontend**
+- React 19 with Hooks & Context API
+- React Bootstrap for responsive UI
+- Vite for lightning-fast development
+- React Router for navigation
+- Lucide React for modern icons
+
+**Backend**
+- Node.js & Express.js REST API
+- JWT authentication with bcrypt
+- MySQL database with JSON support
+- Gmail OAuth integration
+- Express Rate Limiting
+
+**AI Services**
+- Python FastAPI microservice
+- Gmail API integration
+- Booking.com email parser
+- Custom extraction algorithms
+
+## 🚀 Quick Start
+
 ### Prerequisites
-- Node.js (v16 or higher)
-- MySQL database
-- Python (v3.8 or higher)
+- Node.js v16+
+- MySQL 8.0+
+- Python 3.8+
+- Gmail API credentials
 
-### Backend Setup
-1. Navigate to the `backend` directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Configure environment variables:
-   - Rename `.env.example` to `.env`.
-   - Update the placeholders with your database credentials and JWT secret.
-4. Set up the database:
-   - Use MySQL Workbench or a similar tool to execute the `database_schema.sql` file.
-5. Start the backend server:
-   ```bash
-   npm run dev
-   ```
+### Installation
 
-### Frontend Setup
-1. Navigate to the `frontend` directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-4. Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
+```bash
+# Clone the repository
+git clone https://github.com/ttaguchi17/node-app-template.git
+cd node-app-template
 
-### Email Extractor Setup
-1. Navigate to the `email_extractor` directory:
-   ```bash
-   cd email_extractor
-   ```
-2. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Run the email extractor service:
-   ```bash
-   python main.py
-   ```
+# Backend setup
+cd backend
+npm install
+cp .env.example .env
+# Configure .env with your credentials
+npm run dev
 
-## API Endpoints
-### Authentication
-- `POST /api/auth/login`: User login.
-- `POST /api/auth/register`: User registration.
+# Frontend setup (new terminal)
+cd frontend
+npm install
+npm run dev
 
-### Trips
-- `GET /api/trips`: Fetch all trips.
-- `POST /api/trips`: Create a new trip.
-- `DELETE /api/trips/:tripId`: Delete a trip.
-
-### Members
-- `GET /api/trips/:tripId/members`: Get trip members.
-- `POST /api/trips/:tripId/members/invitations`: Invite members.
-
-### Events
-- `POST /api/trips/:tripId/events`: Add an event to a trip.
-- `DELETE /api/trips/:tripId/events/:eventId`: Remove an event.
-
-## Future Enhancements
-- Add unit and integration tests for backend and frontend.
-- Implement a notification system for trip updates.
-- Enhance geocoding with additional providers for redundancy.
-- Improve UI/UX with animations and advanced styling.
-
----
-This project is actively maintained. Contributions and feedback are welcome!
-Made my: Kantemir Muratov, Pranav, Tate
+# Email extractor service (new terminal)
+cd email_extractor
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python main.py
